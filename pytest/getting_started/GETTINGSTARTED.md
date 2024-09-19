@@ -1,6 +1,6 @@
 # Getting Started
 
-## *PyTest - Simple Passing Tests*
+## _PyTest - Simple Passing Tests_
 
 ```python
 # /tests/test_simple_tests.py
@@ -16,13 +16,13 @@ pytest /tests/test_simple_tests.py
 =================================================================== test session starts ===================================================================
 platform linux -- Python x.x.x, pytest-x.x.x, pluggy-x.x.x
 rootdir: ~/testing_design/pytest
-collected 1 item                                                                                                                                          
+collected 1 item
 tests/test_simple_tests.py .                                                                                                                              [100%]
 
 ==================================================================== 1 passed in 0.01s ====================================================================
 ```
 
-## *PyTest - Simple Failing Tests*
+## _PyTest - Simple Failing Tests_
 
 ```python
 # /tests/test_simple_tests.py
@@ -38,7 +38,7 @@ pytest /tests/test_simple_tests.py
 =================================================================== test session starts ===================================================================
 platform linux -- Python x.x.x, pytest-x.x.x, pluggy-x.x.x
 rootdir: ~/testing_design/pytest
-collected 1 item                                                                                                                                          
+collected 1 item
 tests/test_simple_tests.py F                                                                                                                       [100%]
 
 ======================================================================== FAILURES =========================================================================
@@ -56,8 +56,8 @@ FAILED tests/test_simple_tests.py::test_fail - assert 1 == 2
 
 ## Summary
 
-This looks very simple. It is. The functions test_pass() and test_fail() will be discovered by pytest as a test function because it starts
-with test_ and are in a file that starts with test_. And when the test is run, the assert statement will determine if the test passes or fails. `assert` is a keyword built into Python and has the behavior of raising a AssertionError exception if the expression after assert is false. 
+This looks very simple. It is. The functions test*pass() and test_fail() will be discovered by pytest as a test function because it starts
+with test* and are in a file that starts with test\_. And when the test is run, the assert statement will determine if the test passes or fails. `assert` is a keyword built into Python and has the behavior of raising a AssertionError exception if the expression after assert is false.
 
 **Please Note**: Any uncaught exception raised within a test will cause the test to fail. Although any type of uncaught exception can
 cause a test to fail, traditionally we stick with AssertionError from assert to determine pass/fail for tests.
