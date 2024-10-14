@@ -1,4 +1,6 @@
-from cards import Card
+import os
+import subprocess
+from cards import Card, cli
 
 
 def test_field_access(card_data):
@@ -46,3 +48,33 @@ def test_to_dict(card_data):
     c2 = c1.to_dict()
     c2_expected = card_data
     assert c2 == c2_expected
+
+
+def test_builtins_tmp_path(tmp_path):
+    file = tmp_path / "file.txt"
+    file.write_text("Hello")
+    assert file.read_text() == "Hello"
+
+
+def test_builtins_tmp_path_factory(tmp_path_factory):
+    path = tmp_path_factory.mktemp("sub")
+    file = path / "file.txt"
+    file.write_text("Hello")
+    assert file.read_text() == "Hello"
+
+
+def test_capsys(capsys):
+    process = subprocess.run(["ls"], capture_output=True, text=True)
+    print(f"Subprocess: {process.stdout.strip()}")
+    cli.version()
+    print(f"CapSys: {capsys.readouterr().out.strip()}")
+
+
+def test_monkeypatching(monkeypatch):
+    print(f"Pre-Patch: {os.getenv("test")}")
+    monkeypatch.setenv("test", "test")
+    print(f"Post-Patch: {os.getenv("test")}")
+
+def test_monkeypatching_new():
+    print(f"New-Patch: {os.getenv("test")}")
+    

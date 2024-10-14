@@ -7,6 +7,7 @@ Usage
 -----
 
 Here's a demo of how it works:
+    $ pip install ./card_proj
 
     $ cards add a todo
 
